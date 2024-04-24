@@ -28,9 +28,14 @@ app.use((req, res, next) => {
   });
   next();
 });
+
+/*
+// uncomment this part of code to set server in maintenance mode
 app.use((req, res, next) => {
   res.render('maintenance.hbs');
 });
+*/
+
 // set static directory __dirname = full path to application folder on local machine
 app.use(express.static(__dirname + '/public'));
 
@@ -55,10 +60,6 @@ app.get('/bad', (req, res) => {
     errorMessage: 'Unable to handle request'
   });
 }); // 
-
-
-
-
 
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);
